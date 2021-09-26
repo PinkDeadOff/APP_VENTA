@@ -1,0 +1,15 @@
+def conexionBBDD():
+    miConexion=sqlite3.connect("base.db")
+    miCursor=miConexion.cursor()
+    miCursor.execute('''
+                        CREATE TABLE IF NOT EXISTS empleado (
+                            ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                            NOMBRE VARCHAR(250) NOT NULL,
+                            CARGO VARCHAR(250) NOT NULL,
+                            SALARIO INT NOT NULL)
+                         ''')
+    
+    try:
+        messagebox.showinfo("CONEXION", "Base de Datos Creada Exitosamente")
+    except:
+        messagebox.showinfo("CONEXION","Conexion exitosa con la base de datos")
